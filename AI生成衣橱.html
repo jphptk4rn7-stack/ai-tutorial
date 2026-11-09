@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI生成衣橱 · 教程</title><style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#33302c;background:#fbf7f3}
+a{color:#ff6b35;text-decoration:none}
+.top{position:sticky;top:0;z-index:20;display:flex;gap:6px;align-items:center;padding:10px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #f0e6dc}
+.top .logo{font-weight:700;margin-right:14px}.top a{padding:6px 14px;border-radius:20px;color:#6b625a;font-size:14px}.top a.on{background:#ff6b35;color:#fff}.top a:not(.on):hover{background:#fff1e8}
+.hero{max-width:1080px;margin:0 auto;padding:48px 24px 8px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero h1{font-size:40px;line-height:1.25;margin:0 0 12px}.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ff6b35,#ff9a3c);-webkit-background-clip:text;color:transparent}
+.hero p.sub{font-size:18px;color:#6b625a;margin:0 0 20px}
+.hero .pic.cvpic{flex-direction:column;align-items:stretch;gap:0}.hero .pic.cvpic>img{max-width:none;width:100%;cursor:zoom-in}.hero .pic.cvpic>img+img{width:82%;margin:-40px 0 0 auto;position:relative;border:4px solid #fff}
+.hero .pic{position:relative;display:flex;gap:10px;justify-content:center;align-items:flex-end}
+.hero .pic figure{margin:0;flex:1;min-width:0;text-align:center}.hero .pic figcaption{margin-top:8px}.hero .pic figure img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;object-position:50% 20%}.hero .pic>img{max-width:32%;height:auto!important;}.hero .pic img{border-radius:14px;box-shadow:0 10px 30px rgba(120,70,30,.15);background:#f3ece5}
+.v2note{font-size:14px;color:#6b625a;background:#f5f2ff;border-radius:10px;padding:8px 12px;display:inline-block}
+.badge.v2{background:#efeaff;color:#6c5ce7}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;background:#fff1e8;color:#ff6b35;font-size:13px;font-weight:600;margin-bottom:12px}
+main{max-width:1080px;margin:0 auto;padding:0 24px 40px}
+.quick{display:flex;align-items:stretch;gap:10px;margin:28px 0 8px}
+.q{flex:1;position:relative;background:#fff;border-radius:16px;padding:20px 18px 16px;box-shadow:0 4px 16px rgba(120,70,30,.07);border:1px solid #f3e7dc}
+.q .qe{font-size:30px}.q .qn{position:absolute;top:14px;right:16px;font:800 34px/1 Georgia,serif;color:#ffe2d1}.q .qt{font-weight:700;font-size:17px;margin-top:6px}.q .qd{color:#7a7068;font-size:14px;line-height:1.6;margin-top:4px}
+.arrow{align-self:center;color:#ffb38f;font-size:22px}
+.wall{display:flex;gap:14px;margin:14px 0 0;align-items:flex-start}.wall figure{margin:0;cursor:zoom-in}.wall img{display:block;height:300px;width:auto;border-radius:12px;box-shadow:0 8px 24px rgba(120,70,30,.14)}.wallcard{flex:1;align-self:stretch;background:#fff;border-radius:16px;padding:20px 24px;border:1px solid #f3e7dc;box-shadow:0 4px 16px rgba(120,70,30,.07)}.wallcard .wt{font-weight:700;font-size:18px;margin-bottom:8px}.wallcard p{margin:8px 0;font-size:15px}.wallcard .wn{color:#9a8d82;font-size:14px;margin-top:14px}@media(max-width:820px){.wall{flex-wrap:wrap}.wall img{height:200px}.wallcard{flex-basis:100%}}
+.roles{display:flex;gap:12px;align-items:center;margin:14px 0}.roles figure{margin:0;cursor:zoom-in;flex:0 0 150px}.roles .rimg{position:relative;aspect-ratio:150/220;border-radius:12px;overflow:hidden;background:#fff;border:1px solid #f0e4d8}.roles .rimg img{position:absolute;max-width:none;height:auto;display:block}.roles .rres{flex:1}.roles .rres .rimg{aspect-ratio:1080/630}.roles .rres .rimg img{position:static;width:100%;height:100%;object-fit:cover}.rarrow{font-size:28px;color:#ff8a50}@media(max-width:820px){.roles{flex-wrap:wrap}.roles figure{flex-basis:30%}.roles .rres{flex-basis:100%}}
+.roles.row4 figure{flex:1 1 0}.roles.row4 .rimg{aspect-ratio:1/1}
+.hero .pic .hz{position:relative;aspect-ratio:2/3;overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(120,70,30,.15)}.hero .pic figure .hz img{position:absolute;max-width:none;height:auto;aspect-ratio:auto;object-fit:fill;border-radius:0;box-shadow:none;background:none}
+.hero .pic .hz.lk{aspect-ratio:1319/1812}.hero .pic figure .hz.lk img{width:151.5%;left:-25.8%;top:0}
+.looks{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:10px;margin:14px 0 6px}.looks figure.first{grid-row:span 2;align-self:center}.looks figure{margin:0;cursor:zoom-in}.lz{position:relative;aspect-ratio:1319/1812;overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 0 0 1px #f0e4d8}.lz img{position:absolute;max-width:none;height:auto;width:151.5%;left:-25.8%;top:0}.looks figure.first .lz{box-shadow:0 0 0 2px #ff8a50}.lknote{font-size:14px;color:#7a7068;margin:4px 0 22px}@media(max-width:820px){.looks{grid-template-columns:repeat(3,1fr)}}
+.pair{display:flex;gap:10px;align-items:center}.pair figure{margin:0;cursor:zoom-in;flex:0 0 180px}.pz{position:relative;aspect-ratio:2/3;overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 0 0 1px #f0e4d8,0 8px 24px rgba(120,70,30,.1)}.pz img{position:absolute;max-width:none;height:auto;display:block}.wall .pz img{height:auto}.wall.fin{align-items:center}.wall .gifbox{margin:0;flex:0 0 260px}.wall .gifbox img{width:260px;height:auto}.wall.fin .wallcard{align-self:center}.wall.fin{position:relative;justify-content:center;gap:48px;margin:30px 0 46px;padding:36px 48px;border-radius:26px;background:radial-gradient(circle at 12% 18%,rgba(255,255,255,.9) 0,rgba(255,255,255,0) 38%),radial-gradient(circle at 92% 88%,rgba(255,255,255,.7) 0,rgba(255,255,255,0) 35%),linear-gradient(135deg,#ffe6d3 0%,#ffd6e3 55%,#ece0ff 100%);border:1px solid #f7d2c2;box-shadow:0 16px 44px rgba(214,110,80,.18);overflow:hidden}
+.wall.fin::before,.wall.fin::after{content:'✦';position:absolute;color:#fff;opacity:.85;font-size:26px;pointer-events:none}.wall.fin::before{left:30%;top:22px}.wall.fin::after{right:6%;top:30px;font-size:18px}
+.wall.fin .gifbox{position:relative;flex:0 0 auto;padding:10px;background:#fff;border-radius:22px;box-shadow:0 18px 40px rgba(170,70,50,.25);transform:rotate(-2deg)}
+.wall.fin .gifbox img{border-radius:14px;box-shadow:none}
+.wall.fin .gtag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#ff7a45,#ff4d7d);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(255,90,90,.35);z-index:1}
+.wall.fin .wallcard{flex:0 1 430px;background:none;border:none;box-shadow:none;padding:0}
+.wall.fin .wt{font-size:26px;line-height:1.3;margin-bottom:12px}.wall.fin .wt span{background:linear-gradient(90deg,#e8590c,#d6336c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wall.fin .wallcard p{font-size:16px;color:#5b4636}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.fchips span{background:rgba(255,255,255,.85);border:1px solid #fbcfbf;color:#c2410c;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px}
+@media(max-width:820px){.wall.fin{padding:26px 20px;gap:24px}.wall.fin .wallcard{flex-basis:100%}}
+.hmini{display:flex;align-items:center;gap:8px;margin:0 0 18px;padding:10px 14px;background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(120,70,30,.08);width:fit-content}.hmini figure{margin:0;width:78px;cursor:zoom-in;text-align:center}.hmini figcaption{font-size:12px;color:#8a7f75;margin-top:4px}.hmini .rarrow{font-size:20px}.hmini .hmt{display:flex;flex-direction:column;gap:4px;margin-left:8px;font-size:14px;color:#6b625a}.hmini .hmt b{color:#3a2f28;font-size:15px}
+.hero .pic .hz.hman{aspect-ratio:820/1812}.hero .pic figure .hz.hman img{width:243.7%;left:-73.9%;top:0}
+.three{display:grid;grid-template-columns:0.629fr 1.2fr 0.477fr;gap:22px;align-items:start;margin:14px 0}.three .shot{margin:6px 0}.three .th{font-weight:700;font-size:16px}.three .tb{font-size:14px;color:#6b625a;line-height:1.7}@media(max-width:820px){.three{grid-template-columns:1fr}}
+.qh{font-size:14px;color:#a39488;margin:26px 0 0;letter-spacing:2px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:18px;margin:46px 0}
+.step .num{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#ff8a50,#ff6b35);color:#fff;font:800 24px/48px Georgia,serif;text-align:center;box-shadow:0 6px 16px rgba(255,107,53,.3);position:sticky;top:70px}
+.step h2{margin:6px 0 10px;font-size:24px}.step p{margin:8px 0}
+.step ul{margin:8px 0;padding-left:22px}.step li{margin:4px 0}
+.part{margin:70px 0 0;padding:18px 24px;border-radius:16px;background:linear-gradient(90deg,#6c5ce7,#8e7bff);color:#fff}
+.part h2{margin:0;font-size:24px}.part p{margin:4px 0 0;opacity:.9}
+.shot{margin:16px 0;cursor:zoom-in}
+.clip{position:absolute;inset:0;overflow:hidden;border-radius:12px}.crop{position:relative;border-radius:12px;box-shadow:0 0 0 1px #eadfd5,0 8px 24px rgba(120,70,30,.1);background:#fff}
+.crop img{position:absolute;max-width:none;display:block}
+.box{position:absolute;border:3px solid #ff3b30;border-radius:8px;box-shadow:0 0 0 4px rgba(255,59,48,.18);pointer-events:none}
+.mk{position:absolute;transform:translate(-50%,-50%);min-width:30px;height:30px;padding:0 8px;border-radius:15px;background:#ff3b30;color:#fff;font:700 15px/30px sans-serif;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.25);border:2px solid #fff;white-space:nowrap}
+figcaption{font-size:13px;color:#9a8d82;text-align:center;margin-top:8px}
+.callout{border-radius:12px;padding:12px 16px;margin:14px 0;font-size:15px}
+.tip{background:#fff8e6;border-left:4px solid #ffc53d}.warn{background:#fff0f0;border-left:4px solid #ff4d4f}.good{background:#effaf0;border-left:4px solid #52c41a}
+.btn{display:inline-block;padding:0 8px;margin:0 2px;border-radius:6px;background:#fff;border:1px solid #ffcfb8;color:#e85a24;font-size:14px;line-height:24px;font-weight:600;white-space:nowrap}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}.two.lib{grid-template-columns:230px 1fr;gap:32px;align-items:center}.libtree{background:#fff;border:1px solid #f0e4d8;border-radius:14px;padding:12px 18px;margin-top:10px}.libtree .lt-h{font-weight:700;font-size:14px;color:#c2410c;margin:10px 0 6px}.libtree .lt-h:first-child{margin-top:0}.libtree .lt-r{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:9px;background:#fff7ed;margin:4px 0;font-size:14px}.libtree .lt-r.sub{background:none;padding:3px 12px 3px 30px;color:#555}.libtree .lt-r span{margin-left:auto;font-size:12px;color:#9a8a7a}
+.card{background:#fff;border-radius:14px;padding:14px 18px;border:1px solid #f0e4d8}.card h4{margin:0 0 4px;font-size:16px}.card p{margin:0;color:#6b625a;font-size:14px}
+.coins{background:#fff;border-radius:16px;padding:18px 22px;margin:30px 0;border:1px dashed #ffc9ad}
+.ct{font-weight:700;margin-bottom:8px}.coin{display:inline-flex;gap:8px;align-items:center;margin:4px 18px 4px 0;font-size:15px}.coin b{color:#ff6b35}
+.cnote{font-size:13px;color:#9a8d82;margin-top:6px}
+.faq{margin:60px 0 20px}.faq h2{font-size:24px}
+details{background:#fff;border-radius:12px;margin:10px 0;border:1px solid #f0e4d8}summary{cursor:pointer;padding:12px 18px;font-weight:600}details>div{padding:0 18px 14px;color:#5a524b}
+footer{text-align:center;padding:30px 20px 50px;color:#9a8d82;font-size:15px}footer a{margin-left:16px}
+#lb{position:fixed;inset:0;background:rgba(20,15,10,.82);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:94vw;max-height:92vh;border-radius:8px}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.quick{flex-direction:column}.arrow{transform:rotate(90deg)}.two,.two.lib{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="top"><span class="logo">🎨 AI生图教程</span><a href="AI生成可变形象.html">🎭 AI生成可变形象</a><a href="AI生成衣橱.html" class="on">👗 AI生成衣橱</a><a href="AI生成封面.html">📕 AI生成封面</a></nav>
+<header class="hero">
+<div><span class="badge">衣橱管理 · 新功能</span> <span class="badge v2">仅编辑器 2.0</span>
+<h1>想穿什么，<em>说一句</em><br>AI 帮你填满衣橱</h1>
+<p class="sub">以角色形象为基础，位置、大小、朝向、姿势、脸和身材都不变，只换衣服、发型、妆容。生成完直接放进衣橱，不用再换脸、抠图、对位置。</p>
+<div class="hmini"><figure onclick="zoom('img/wd_man.png')"><div class="pz"><img src="img/wd_man.png" style="width:250%;left:-90%;top:-5.8%"></div><figcaption>原图</figcaption></figure><div class="rarrow">➜</div><figure onclick="zoom('img/wd_man_f.webp')"><div class="pz"><img src="img/wd_man_f.webp" style="width:333%;left:-115.5%;top:-5%"></div><figcaption>男扮女装</figcaption></figure><div class="hmt"><b>🎭 男扮女装也行</b><span>脸还是那张脸，衣服、发饰全换了。</span></div></div>
+<p class="v2note">⚠️ 这个功能只有<b>编辑器 2.0</b> 的作品才有，1.0 的作品里看不到。</p></div>
+<div class="pic"><figure onclick="zoom('img/wd_m1.webp')"><div class="hz hman"><img src="img/wd_m1.webp"></div><figcaption>古风</figcaption></figure><figure onclick="zoom('img/wd_m2.webp')"><div class="hz hman"><img src="img/wd_m2.webp"></div><figcaption>扎染长袍</figcaption></figure><figure onclick="zoom('img/wd_m3.webp')"><div class="hz hman"><img src="img/wd_m3.webp"></div><figcaption>西装礼服</figcaption></figure><figure onclick="zoom('img/wd_m4.webp')"><div class="hz hman"><img src="img/wd_m4.webp"></div><figcaption>白纱长裙</figcaption></figure></div></header>
+<main>
+<div class="qh">⏱ 30 秒速通版</div>
+<div class="quick"><div class="q"><div class="qe">👗</div><div class="qn">1</div><div class="qt">衣橱选套装类型</div><div class="qd">AI 生成只支持套装</div></div><div class="arrow">→</div><div class="q"><div class="qe">✍️</div><div class="qn">2</div><div class="qt">点「AI生成素材」，写造型</div><div class="qd">不会写就点「快速选择」</div></div><div class="arrow">→</div><div class="q"><div class="qe">✅</div><div class="qn">3</div><div class="qt">挑一张，应用到素材</div><div class="qd">9 积分/张，应用会顺手存进素材库</div></div></div>
+
+<div class="qh">👀 先看看真实出图</div>
+<div class="looks">
+<figure class="first" onclick="zoom('img/wd_init_s.webp')"><div class="lz"><img src="img/wd_init_s.webp"></div><figcaption><b>初始形象</b></figcaption></figure>
+<figure onclick="zoom('img/wd_guofeng_s.webp')"><div class="lz"><img src="img/wd_guofeng_s.webp"></div><figcaption>国风</figcaption></figure>
+<figure onclick="zoom('img/wd_punk_s.webp')"><div class="lz"><img src="img/wd_punk_s.webp"></div><figcaption>朋克摇滚</figcaption></figure>
+<figure onclick="zoom('img/wd_mecha.webp')"><div class="lz"><img src="img/wd_mecha.webp"></div><figcaption>机械战姬</figcaption></figure>
+<figure onclick="zoom('img/wd_bride_s.webp')"><div class="lz"><img src="img/wd_bride_s.webp"></div><figcaption>花嫁</figcaption></figure>
+<figure onclick="zoom('img/wd_twin_s.webp')"><div class="lz"><img src="img/wd_twin_s.webp"></div><figcaption>金色双马尾蓬蓬裙</figcaption></figure>
+<figure onclick="zoom('img/wd_goth_s.webp')"><div class="lz"><img src="img/wd_goth_s.webp"></div><figcaption>哥特暗黑</figcaption></figure>
+<figure onclick="zoom('img/wd_casual_s.webp')"><div class="lz"><img src="img/wd_casual_s.webp"></div><figcaption>休闲运动</figcaption></figure>
+<figure onclick="zoom('img/wd_ethnic.webp')"><div class="lz"><img src="img/wd_ethnic.webp"></div><figcaption>民族风卫衣</figcaption></figure>
+</div>
+<p class="lknote">九张的位置、大小、姿势完全一致，放进衣橱切换时人不会跳。连发型发色都能一起换。</p>
+
+<section class="step" id="s1"><div class="num">1</div><div class="sbody"><h2>入口：套装衣橱的素材卡</h2>
+<p>AI 衣橱<b>只支持套装类型</b>。打开<b>衣橱管理</b>，在套装分组里找到素材卡：</p>
+<figure class="shot" onclick="zoom('img/wd12.png')"><div class="crop" style="aspect-ratio:1460/640"><div class="clip"><img src="img/wd12.png" loading="lazy" style="width:127.397%;left:-24.658%;top:-19.375%"></div><i class="box" style="left:49.795%;top:54.063%;width:17.397%;height:11.719%"></i><i class="box" style="left:79.041%;top:66.719%;width:8.63%;height:5.156%"></i><i class="box" style="left:86.301%;top:25%;width:8.836%;height:5%"></i><b class="mk" style="left:83.973%;top:76.875%">空卡片</b><b class="mk" style="left:89.521%;top:34.844%">批量</b></div></figure>
+<ul>
+<li><b>已有图的卡片</b>：鼠标放上去，菜单里点 <span class="btn">🎨 AI生成素材</span>。</li>
+<li><b>空卡片</b>：直接点 <span class="btn">🎨 AI生成素材</span>。</li>
+<li><b>批量</b>：右上的 <span class="btn">+ 批量新增素材</span>，一次生成好几套，看 <a href="#batch">第二部分</a>。</li>
+</ul></div></section>
+
+<section class="step" id="s2"><div class="num">2</div><div class="sbody"><h2>认识生成界面</h2>
+<p>打开的窗口叫「AI生成套装」，从上到下五块：</p>
+<figure class="shot" style="max-width:820px" onclick="zoom('img/wd18.png')"><div class="crop" style="aspect-ratio:1212/980"><div class="clip"><img src="img/wd18.png" loading="lazy" style="width:101.98%;left:-0.66%;top:-8.367%"></div><b class="mk" style="left:60.314%;top:5.204%">1</b><b class="mk" style="left:11.716%;top:28.469%">2</b><b class="mk" style="left:75.908%;top:29.694%">3</b><b class="mk" style="left:11.716%;top:68.469%">4</b><b class="mk" style="left:11.716%;top:87.653%">5</b></div></figure>
+<ul>
+<li><b>① 角色基础形象</b>：这次的“模特”，见下面。</li>
+<li><b>② 造型描述</b>：写发型、妆容、服装、配饰。</li>
+<li><b>③ 参考图片</b>（可选）：限 1 张，JPG/PNG/webp，10MB 以内。</li>
+<li><b>④ 画风风格</b>：有基础形象时<b>画风跟基础形象一致，不能选</b>，提示“素材风格将参照基础形象，无法自定义”。</li>
+<li><b>⑤ 生成数量</b>：一次 1～4 张，底下先算好要消耗多少积分：<b>每张 9 积分</b>。</li>
+</ul>
+<p><b>基础形象怎么来的？</b>按顺序找：</p>
+<div class="two">
+<div class="card"><h4>① 衣橱初始形象</h4><p>优先用它。生成时<b>固定位置、大小、朝向、姿势、脸和身材</b>，只换衣服、发型、妆容。</p></div>
+<div class="card"><h4>② 关联角色的默认形象</h4><p>衣橱没有初始形象时，用绑定角色的默认形象。</p></div>
+</div>
+<p>两个都没有，就按造型描述<b>先画一个基础立绘</b>，这时可以自己选画风：</p>
+<figure class="shot" style="max-width:820px" onclick="zoom('img/wd16.png')"><div class="crop" style="aspect-ratio:1206/684"><div class="clip"><img src="img/wd16.png" loading="lazy" style="width:102.488%;left:-1.161%;top:-12.573%"></div><i class="box" style="left:1.824%;top:12.573%;width:25.871%;height:4.678%"></i><i class="box" style="left:0.663%;top:85.38%;width:98.673%;height:12.719%"></i></div></figure>
+<div class="callout good">🎁 <b>小技巧：先定好初始形象。</b>没有基础形象时，先生成一张满意的基础立绘，应用后在素材卡菜单里点「设为初始形象」。之后再生成的每一套衣服，都会和它对齐。</div></div></section>
+
+<section class="step" id="s3"><div class="num">3</div><div class="sbody"><h2>想换个模特？自己替换</h2>
+<p>基础形象可以自己换：点 <span class="btn">替换</span> 选一张别的立绘当基础；点 <span class="btn">清空</span> 就不用基础形象，按描述随机生成。</p>
+<figure class="shot" style="max-width:760px" onclick="zoom('img/wd17.png')"><div class="crop" style="aspect-ratio:1224/285"><div class="clip"><img src="img/wd17.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:13.807%;top:58.246%;width:5.474%;height:11.93%"></i><i class="box" style="left:20.343%;top:58.246%;width:5.474%;height:11.93%"></i></div></figure></div></section>
+
+<section class="step" id="s4"><div class="num">4</div><div class="sbody"><h2>写造型：没头绪就点「快速选择」</h2>
+<div class="two">
+<div><figure class="shot" style="max-width:420px" onclick="zoom('img/wd19.png')"><div class="crop" style="aspect-ratio:718/780"><div class="clip"><img src="img/wd19.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:40.669%;top:1.923%;width:18.106%;height:5.128%"></i></div></figure></div>
+<div>
+<p>不知道要新增什么款式？点 <span class="btn">📋 快速选择</span>，也许能给你一些灵感。</p>
+<p>顶上按<b>男 / 女</b>筛选，下面风格、季节、场景、气质、上装、下装、鞋履、配饰、发型、发色、妆容、主色调，每类点一个就行。</p>
+<p>点 <span class="btn">✅ 应用选择</span>，选中的项会<b>追加到造型描述的末尾</b>。「保持原样」「无配饰」「不限」不会写进去。</p>
+</div></div>
+<figure class="shot" style="max-width:620px" onclick="zoom('img/wd20.png')"><div class="crop" style="aspect-ratio:723/314"><div class="clip"><img src="img/wd20.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:3.32%;top:29.299%;width:93.499%;height:14.013%"></i></div></figure></div></section>
+
+<section class="step" id="s5"><div class="num">5</div><div class="sbody"><h2>让 AI 把描述写完整</h2>
+<div class="two">
+<div><figure class="shot" onclick="zoom('img/wd21.png')"><div class="crop" style="aspect-ratio:710/920"><div class="clip"><img src="img/wd21.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:1.549%;top:28.587%;width:37.183%;height:4.348%"></i><i class="box" style="left:74.648%;top:43.696%;width:5.352%;height:2.609%"></i><b class="mk" style="left:42.394%;top:23.696%">1</b><b class="mk" style="left:70.141%;top:45%">2</b></div></figure></div>
+<div>
+<p>标签拼出来的描述比较短，点 <b>① <span class="btn">✨ AI智能扩写</span></b>（1 积分/次），AI 会补成一大段完整的提示词。</p>
+<p>扩写的结果<b>不会自动填进去</b>，看着满意要点 <b>② <span class="btn">应用</span></b>；不满意点「重新生成」再扩一次，或者「取消」。</p>
+</div></div></div></section>
+
+<section class="step" id="s6"><div class="num">6</div><div class="sbody"><h2>（可选）传参考图让 AI 分析</h2>
+<p>有心仪的衣服图就传上来，点 <span class="btn">🔍 分析生成提示词</span>（5 积分/次），AI 看图写出服装、发型的描述，同样要点「应用」才会填进去。</p>
+<figure class="shot" onclick="zoom('img/wd22.png')"><div class="crop" style="aspect-ratio:1218/740"><div class="clip"><img src="img/wd22.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:60.263%;top:33.649%;width:38.998%;height:5.405%"></i><i class="box" style="left:44.171%;top:54.595%;width:2.956%;height:3.243%"></i></div></figure></div></section>
+
+<section class="step" id="s7"><div class="num">7</div><div class="sbody"><h2>开始生成，可以先去忙别的</h2>
+<p>点 <span class="btn">开始生成</span>。生图时间比较长，不用干等：点右上角的 <span class="btn">—</span> 把窗口最小化，先去做别的事。</p>
+<figure class="shot" style="max-width:760px" onclick="zoom('img/wd23.png')"><div class="crop" style="aspect-ratio:1218/808"><div class="clip"><img src="img/wd23.png" loading="lazy" style="width:101.56%;left:0%;top:0%"></div><i class="box" style="left:92.693%;top:1.609%;width:3.284%;height:4.95%"></i><i class="box" style="left:1.642%;top:94.059%;width:16.913%;height:3.713%"></i></div></figure>
+<p>最小化以后，衣橱列表里的角色名、分组名、正在生成的素材卡上都会挂一个转圈的进度角标：</p>
+<figure class="shot" onclick="zoom('img/wd1.png')"><div class="crop" style="aspect-ratio:1300/560"><div class="clip"><img src="img/wd1.png" loading="lazy" style="width:143.077%;left:-2.308%;top:-15%"></div><i class="box" style="left:19.385%;top:21.071%;width:2.923%;height:5%"></i><i class="box" style="left:38.923%;top:8.393%;width:2.769%;height:4.643%"></i><i class="box" style="left:89.385%;top:69.286%;width:2.769%;height:4.643%"></i></div></figure>
+<p>顶部工具栏的「衣橱」按钮上也有：</p>
+<figure class="shot" style="max-width:300px" onclick="zoom('img/wd2.png')"><div class="crop" style="aspect-ratio:345/69"><div class="clip"><img src="img/wd2.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:56.522%;top:8.696%;width:10.435%;height:37.681%"></i></div></figure>
+<div class="callout warn">⚠️ <b>所有生成任务是互斥的</b>，不能同时开。上一个没跑完就点新的，会提示：</div>
+<figure class="shot" style="max-width:420px" onclick="zoom('img/wd3.png')"><div class="crop" style="aspect-ratio:494/76"><div class="clip"><img src="img/wd3.png" loading="lazy" style="width:100%;left:0%;top:0%"></div></div></figure></div></section>
+
+<section class="step" id="s8"><div class="num">8</div><div class="sbody"><h2>挑一张，应用到素材</h2>
+<p>画好后，鼠标放到图上可以 <span class="btn">查看</span> 大图、<span class="btn">下载</span> 到本地。点选最喜欢的那张，然后看底部：</p>
+<figure class="shot" onclick="zoom('img/wd4.png')"><div class="crop" style="aspect-ratio:1222/416"><div class="clip"><img src="img/wd4.png" loading="lazy" style="width:101.146%;left:0%;top:0%"></div><i class="box" style="left:18.903%;top:15.385%;width:15.221%;height:59.615%"></i><i class="box" style="left:86.907%;top:86.058%;width:12.684%;height:11.058%"></i><i class="box" style="left:73.65%;top:86.058%;width:12.193%;height:11.058%"></i><i class="box" style="left:61.62%;top:86.058%;width:10.966%;height:11.058%"></i></div></figure>
+<ul>
+<li><span class="btn">✅ 应用到素材</span>：设成这张素材卡的图，<b>同时存入素材库</b>。</li>
+<li><span class="btn">💾 存入素材库</span>：只存不用，以后再挂。</li>
+<li><span class="btn">🔄 重新生成</span>：都不满意，改改描述再来。</li>
+</ul>
+<p>觉得这次的描述写得好，点 <span class="btn">💾 保存描述</span>。<b>生成结果被应用了、又点了保存描述</b>，下次打开这张素材的生图面板时，描述会自动回显。</p>
+<figure class="shot" onclick="zoom('img/wd5.png')"><div class="crop" style="aspect-ratio:1398/312"><div class="clip"><img src="img/wd5.png" loading="lazy" style="width:103.219%;left:-1.717%;top:-75.641%"></div><i class="box" style="left:31.974%;top:76.603%;width:9.943%;height:11.218%"></i></div></figure></div></section>
+
+<section class="step" id="s9"><div class="num">9</div><div class="sbody"><h2>用完记得手动关闭</h2>
+<p>只有点右上角的 <span class="btn">×</span> 并确认「关闭」，面板和结果才会清空。为了防止数据丢失，<b>其他方式离开都算最小化</b>，结果还在。</p>
+<figure class="shot" style="max-width:560px" onclick="zoom('img/wd6.png')"><div class="crop" style="aspect-ratio:624/264"><div class="clip"><img src="img/wd6.png" loading="lazy" style="width:198.878%;left:-49.038%;top:-103.788%"></div><i class="box" style="left:71.474%;top:70.076%;width:24.038%;height:18.939%"></i></div></figure>
+<div class="callout warn">⚠️ 还没应用、也没存素材库的图，关闭后就找不回了（生图历史里还能看到）。</div></div></section>
+
+<div class="part" id="batch"><h2>第二部分 · 批量生成：一次上新一排</h2><p>要加好几套衣服？一个窗口全部生成，名字也一起填好。</p></div>
+
+<section class="step" id="s10"><div class="num">10</div><div class="sbody"><h2>打开批量</h2>
+<p>点分类素材右上的 <span class="btn">+ 批量新增素材</span>：</p>
+<figure class="shot" style="max-width:442px" onclick="zoom('img/wd7.png')"><div class="crop" style="aspect-ratio:442/58"><div class="clip"><img src="img/wd7.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:66.968%;top:13.793%;width:30.769%;height:72.414%"></i></div></figure>
+<p>在弹出的窗口里点紫色的 <span class="btn">🎨 AI批量生成素材</span>：</p>
+<figure class="shot" style="max-width:820px" onclick="zoom('img/wd8.png')"><div class="crop" style="aspect-ratio:986/62"><div class="clip"><img src="img/wd8.png" loading="lazy" style="width:168.966%;left:0%;top:-122.581%"></div><i class="box" style="left:13.692%;top:16.129%;width:15.619%;height:67.742%"></i></div></figure></div></section>
+
+<section class="step" id="s11"><div class="num">11</div><div class="sbody"><h2>要几套就加几个素材</h2>
+<p>最上面是全局设置：基础形象、画风（规则和单个一样），还有<b>每个素材生成几张</b>。要几套衣服，就点几次 <span class="btn">+ 添加素材</span>。</p>
+<figure class="shot" onclick="zoom('img/wd9.png')"><div class="crop" style="aspect-ratio:1460/925"><div class="clip"><img src="img/wd9.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:75.137%;top:29.189%;width:10.685%;height:4.541%"></i><i class="box" style="left:9.452%;top:42.486%;width:6.37%;height:3.676%"></i><b class="mk" style="left:80.479%;top:23.568%">每个几张</b><b class="mk" style="left:20.548%;top:44.324%">加一个</b></div></figure></div></section>
+
+<section class="step" id="s12"><div class="num">12</div><div class="sbody"><h2>每个素材写好造型描述</h2>
+<p>每个素材都有自己的造型描述和参考图，单个生成里的手段都能用：<span class="btn">快速选择</span>、<span class="btn">AI优化提示词</span>、<span class="btn">参考图分析</span>、<span class="btn">保存描述</span>。每个素材<b>各写各的</b>，互不影响。</p>
+<figure class="shot" style="max-width:820px" onclick="zoom('img/wd10.png')"><div class="crop" style="aspect-ratio:1456/1050"><div class="clip"><img src="img/wd10.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:2.747%;top:29.524%;width:74.176%;height:13.333%"></i></div></figure>
+<p>都写好了，点右下角 <span class="btn">全部生成</span>。同样可以最小化，先去忙别的。</p>
+<p>生成完，每个素材下面都会出结果。点选想要的那张，按需要点 <span class="btn">🔄 重新生成</span>、<span class="btn">💾 存入素材库</span> 或 <span class="btn">✅ 应用到此素材</span>，只管当前这一个素材：</p>
+<figure class="shot" style="max-width:820px" onclick="zoom('img/wd24.png')"><div class="crop" style="aspect-ratio:1442/658"><div class="clip"><img src="img/wd24.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:2.08%;top:61.398%;width:9.293%;height:27.356%"></i><i class="box" style="left:2.08%;top:89.362%;width:26.63%;height:6.687%"></i></div></figure></div></section>
+
+<section class="step" id="s13"><div class="num">13</div><div class="sbody"><h2>挑好结果，回到批量列表</h2>
+<p>每个素材挑一张喜欢的应用，回到批量新增窗口，图已经填进去了。素材名称按上面的<b>默认素材名称</b>自动编号（服装1、服装2……），购买能量按<b>默认购买能量</b>填好，也可以逐个改。</p>
+<figure class="shot" onclick="zoom('img/wd11.png')"><div class="crop" style="aspect-ratio:1665/690"><div class="clip"><img src="img/wd11.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:27.087%;top:12.899%;width:16.517%;height:5.797%"></i><i class="box" style="left:44.625%;top:12.899%;width:13.453%;height:5.797%"></i><i class="box" style="left:93.153%;top:94.058%;width:6.006%;height:4.493%"></i><b class="mk" style="left:34.775%;top:28.841%">默认名称</b><b class="mk" style="left:53.393%;top:27.826%">默认能量</b><b class="mk" style="left:94.414%;top:88.986%">镜像</b></div></figure>
+<p>右边是素材预览，能 <span class="btn">镜像反转</span>；衣橱里的素材不支持放大裁切。检查无误点 <span class="btn">确认</span>，一排新衣服就进衣橱了 🎉</p></div></section>
+
+<section class="step" id="s14"><div class="num">14</div><div class="sbody"><h2>素材库自动分好组</h2>
+<div class="two lib">
+<div><figure class="shot" style="max-width:230px" onclick="zoom('img/wd14.png')"><div class="crop" style="aspect-ratio:332/734"><div class="clip"><img src="img/wd14.png" loading="lazy" style="width:107.229%;left:0%;top:0%"></div><i class="box" style="left:0.602%;top:78.202%;width:98.193%;height:21.526%"></i></div></figure></div>
+<div>
+<p>应用和存入素材库的图，会<b>按绑定的角色和生成的类型自动建分组</b>，不用自己整理。</p>
+<p>位置在 <b>素材管理 → 个人素材 → 立绘</b>，分组长这样：</p>
+<div class="libtree">
+<div class="lt-h">👗 衣橱生成的</div>
+<div class="lt-r">📂 衣橱素材<span>按角色再分</span></div>
+<div class="lt-r sub">└ 你（衣橱素材）</div>
+<div class="lt-r sub">└ 美少女（衣橱素材）</div>
+<div class="lt-h">🧑 可变形象生成的</div>
+<div class="lt-r">📂 XX（角色形象）<span>一个角色一组</span></div>
+</div>
+</div></div></div></section>
+
+<div class="wall fin">
+<figure class="gifbox" onclick="zoom('img/wd15.gif')"><span class="gtag">▶ 实机效果</span><img src="img/wd15.gif"></figure>
+<div class="wallcard"><div class="wt">🎉 <span>这样就拥有一个衣橱了</span></div><p>玩家点哪套，角色就换哪套，站位、大小、姿势一点不差。</p><div class="fchips"><span>✓ 不用换脸</span><span>✓ 不用抠图</span><span>✓ 不用修正位置</span></div></div>
+</div>
+
+<section class="step" id="s15"><div class="num">15</div><div class="sbody"><h2>生图历史：衣橱单独一栏</h2>
+<p>编辑器顶部工具栏里的 <span class="btn">生图历史</span> 记着以前生成的图，切到 <b>衣橱</b> 就只看衣橱的。可以按时间筛选，也能搜提示词、角色名。</p>
+<figure class="shot" style="max-width:900px" onclick="zoom('img/wd13.png')"><div class="crop" style="aspect-ratio:1734/708"><div class="clip"><img src="img/wd13.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:19.377%;top:15.819%;width:7.151%;height:8.475%"></i></div></figure></div></section>
+
+<div class="coins"><div class="ct">💎 积分小账本</div><div class="coin"><span>AI智能扩写 / 优化提示词</span><b>1 积分/次</b></div><div class="coin"><span>分析参考图</span><b>5 积分/次</b></div><div class="coin"><span>生成服装</span><b>9 积分/张</b></div><div class="cnote">弹窗右上角「本月消耗」随时看本月用了多少，开始生成前底部也会先算好这次要花多少。</div></div>
+
+<section class="faq"><h2>🙋 常见问题</h2><details><summary>找不到 AI 按钮？</summary><div>AI 衣橱只支持<b>套装类型</b>的衣橱，自定义换装用不了。另外只有编辑器 2.0 的作品才有。</div></details><details><summary>生成的人不是我的角色？</summary><div>看最上面「角色基础形象」是谁：优先用衣橱初始形象，没有就用关联角色的默认形象。不对就点「替换」。</div></details><details><summary>为什么画风选不了？</summary><div>有基础形象时，画风跟基础形象一致，不能另选；清空基础形象才能自己选画风。</div></details><details><summary>提示“当前有生成任务正在进行”？</summary><div>所有生成任务互斥，同一时间只能跑一个。等上一个跑完，或者把最小化的窗口点开看看进度。</div></details><details><summary>关掉窗口，生成的图还在吗？</summary><div>只有点 × 并确认关闭才会清空，其他方式离开都算最小化，再点开结果还在。</div></details><details><summary>生成的图去哪找？</summary><div>应用或存入素材库的，在素材管理 → 个人素材 → 立绘 →「衣橱素材」里，按角色分好组；所有生成过的，在「生图历史」的衣橱一栏。</div></details></section>
+</main>
+<footer>看完了？去使用一遍，比看十遍都管用 ✌️ <a href="AI生成可变形象.html">🎭 AI生成可变形象 →</a><a href="AI生成封面.html">📕 AI生成封面 →</a></footer>
+<div id="lb" onclick="this.classList.remove('on')"><img></div>
+<script>function zoom(s){const l=document.getElementById('lb');l.querySelector('img').src=s;l.classList.add('on')}document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lb').classList.remove('on')})</script>
+</body></html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI生成可变形象 · 教程</title><style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#33302c;background:#fbf7f3}
+a{color:#ff6b35;text-decoration:none}
+.top{position:sticky;top:0;z-index:20;display:flex;gap:6px;align-items:center;padding:10px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid #f0e6dc}
+.top .logo{font-weight:700;margin-right:14px}.top a{padding:6px 14px;border-radius:20px;color:#6b625a;font-size:14px}.top a.on{background:#ff6b35;color:#fff}.top a:not(.on):hover{background:#fff1e8}
+.hero{max-width:1080px;margin:0 auto;padding:48px 24px 8px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero h1{font-size:40px;line-height:1.25;margin:0 0 12px}.hero h1 em{font-style:normal;background:linear-gradient(90deg,#ff6b35,#ff9a3c);-webkit-background-clip:text;color:transparent}
+.hero p.sub{font-size:18px;color:#6b625a;margin:0 0 20px}
+.hero .pic.cvpic{flex-direction:column;align-items:stretch;gap:0}.hero .pic.cvpic>img{max-width:none;width:100%;cursor:zoom-in}.hero .pic.cvpic>img+img{width:82%;margin:-40px 0 0 auto;position:relative;border:4px solid #fff}
+.hero .pic{position:relative;display:flex;gap:10px;justify-content:center;align-items:flex-end}
+.hero .pic figure{margin:0;flex:1;min-width:0;text-align:center}.hero .pic figcaption{margin-top:8px}.hero .pic figure img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;object-position:50% 20%}.hero .pic>img{max-width:32%;height:auto!important;}.hero .pic img{border-radius:14px;box-shadow:0 10px 30px rgba(120,70,30,.15);background:#f3ece5}
+.v2note{font-size:14px;color:#6b625a;background:#f5f2ff;border-radius:10px;padding:8px 12px;display:inline-block}
+.badge.v2{background:#efeaff;color:#6c5ce7}
+.badge{display:inline-block;padding:3px 12px;border-radius:20px;background:#fff1e8;color:#ff6b35;font-size:13px;font-weight:600;margin-bottom:12px}
+main{max-width:1080px;margin:0 auto;padding:0 24px 40px}
+.quick{display:flex;align-items:stretch;gap:10px;margin:28px 0 8px}
+.q{flex:1;position:relative;background:#fff;border-radius:16px;padding:20px 18px 16px;box-shadow:0 4px 16px rgba(120,70,30,.07);border:1px solid #f3e7dc}
+.q .qe{font-size:30px}.q .qn{position:absolute;top:14px;right:16px;font:800 34px/1 Georgia,serif;color:#ffe2d1}.q .qt{font-weight:700;font-size:17px;margin-top:6px}.q .qd{color:#7a7068;font-size:14px;line-height:1.6;margin-top:4px}
+.arrow{align-self:center;color:#ffb38f;font-size:22px}
+.wall{display:flex;gap:14px;margin:14px 0 0;align-items:flex-start}.wall figure{margin:0;cursor:zoom-in}.wall img{display:block;height:300px;width:auto;border-radius:12px;box-shadow:0 8px 24px rgba(120,70,30,.14)}.wallcard{flex:1;align-self:stretch;background:#fff;border-radius:16px;padding:20px 24px;border:1px solid #f3e7dc;box-shadow:0 4px 16px rgba(120,70,30,.07)}.wallcard .wt{font-weight:700;font-size:18px;margin-bottom:8px}.wallcard p{margin:8px 0;font-size:15px}.wallcard .wn{color:#9a8d82;font-size:14px;margin-top:14px}@media(max-width:820px){.wall{flex-wrap:wrap}.wall img{height:200px}.wallcard{flex-basis:100%}}
+.roles{display:flex;gap:12px;align-items:center;margin:14px 0}.roles figure{margin:0;cursor:zoom-in;flex:0 0 150px}.roles .rimg{position:relative;aspect-ratio:150/220;border-radius:12px;overflow:hidden;background:#fff;border:1px solid #f0e4d8}.roles .rimg img{position:absolute;max-width:none;height:auto;display:block}.roles .rres{flex:1}.roles .rres .rimg{aspect-ratio:1080/630}.roles .rres .rimg img{position:static;width:100%;height:100%;object-fit:cover}.rarrow{font-size:28px;color:#ff8a50}@media(max-width:820px){.roles{flex-wrap:wrap}.roles figure{flex-basis:30%}.roles .rres{flex-basis:100%}}
+.roles.row4 figure{flex:1 1 0}.roles.row4 .rimg{aspect-ratio:1/1}
+.hero .pic .hz{position:relative;aspect-ratio:2/3;overflow:hidden;border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(120,70,30,.15)}.hero .pic figure .hz img{position:absolute;max-width:none;height:auto;aspect-ratio:auto;object-fit:fill;border-radius:0;box-shadow:none;background:none}
+.hero .pic .hz.lk{aspect-ratio:1319/1812}.hero .pic figure .hz.lk img{width:151.5%;left:-25.8%;top:0}
+.looks{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:10px;margin:14px 0 6px}.looks figure.first{grid-row:span 2;align-self:center}.looks figure{margin:0;cursor:zoom-in}.lz{position:relative;aspect-ratio:1319/1812;overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 0 0 1px #f0e4d8}.lz img{position:absolute;max-width:none;height:auto;width:151.5%;left:-25.8%;top:0}.looks figure.first .lz{box-shadow:0 0 0 2px #ff8a50}.lknote{font-size:14px;color:#7a7068;margin:4px 0 22px}@media(max-width:820px){.looks{grid-template-columns:repeat(3,1fr)}}
+.pair{display:flex;gap:10px;align-items:center}.pair figure{margin:0;cursor:zoom-in;flex:0 0 180px}.pz{position:relative;aspect-ratio:2/3;overflow:hidden;border-radius:12px;background:#fff;box-shadow:0 0 0 1px #f0e4d8,0 8px 24px rgba(120,70,30,.1)}.pz img{position:absolute;max-width:none;height:auto;display:block}.wall .pz img{height:auto}.wall.fin{align-items:center}.wall .gifbox{margin:0;flex:0 0 260px}.wall .gifbox img{width:260px;height:auto}.wall.fin .wallcard{align-self:center}.wall.fin{position:relative;justify-content:center;gap:48px;margin:30px 0 46px;padding:36px 48px;border-radius:26px;background:radial-gradient(circle at 12% 18%,rgba(255,255,255,.9) 0,rgba(255,255,255,0) 38%),radial-gradient(circle at 92% 88%,rgba(255,255,255,.7) 0,rgba(255,255,255,0) 35%),linear-gradient(135deg,#ffe6d3 0%,#ffd6e3 55%,#ece0ff 100%);border:1px solid #f7d2c2;box-shadow:0 16px 44px rgba(214,110,80,.18);overflow:hidden}
+.wall.fin::before,.wall.fin::after{content:'✦';position:absolute;color:#fff;opacity:.85;font-size:26px;pointer-events:none}.wall.fin::before{left:30%;top:22px}.wall.fin::after{right:6%;top:30px;font-size:18px}
+.wall.fin .gifbox{position:relative;flex:0 0 auto;padding:10px;background:#fff;border-radius:22px;box-shadow:0 18px 40px rgba(170,70,50,.25);transform:rotate(-2deg)}
+.wall.fin .gifbox img{border-radius:14px;box-shadow:none}
+.wall.fin .gtag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#ff7a45,#ff4d7d);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(255,90,90,.35);z-index:1}
+.wall.fin .wallcard{flex:0 1 430px;background:none;border:none;box-shadow:none;padding:0}
+.wall.fin .wt{font-size:26px;line-height:1.3;margin-bottom:12px}.wall.fin .wt span{background:linear-gradient(90deg,#e8590c,#d6336c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wall.fin .wallcard p{font-size:16px;color:#5b4636}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.fchips span{background:rgba(255,255,255,.85);border:1px solid #fbcfbf;color:#c2410c;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px}
+@media(max-width:820px){.wall.fin{padding:26px 20px;gap:24px}.wall.fin .wallcard{flex-basis:100%}}
+.hmini{display:flex;align-items:center;gap:8px;margin:0 0 18px;padding:10px 14px;background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(120,70,30,.08);width:fit-content}.hmini figure{margin:0;width:78px;cursor:zoom-in;text-align:center}.hmini figcaption{font-size:12px;color:#8a7f75;margin-top:4px}.hmini .rarrow{font-size:20px}.hmini .hmt{display:flex;flex-direction:column;gap:4px;margin-left:8px;font-size:14px;color:#6b625a}.hmini .hmt b{color:#3a2f28;font-size:15px}
+.hero .pic .hz.hman{aspect-ratio:820/1812}.hero .pic figure .hz.hman img{width:243.7%;left:-73.9%;top:0}
+.three{display:grid;grid-template-columns:0.629fr 1.2fr 0.477fr;gap:22px;align-items:start;margin:14px 0}.three .shot{margin:6px 0}.three .th{font-weight:700;font-size:16px}.three .tb{font-size:14px;color:#6b625a;line-height:1.7}@media(max-width:820px){.three{grid-template-columns:1fr}}
+.qh{font-size:14px;color:#a39488;margin:26px 0 0;letter-spacing:2px}
+.step{display:grid;grid-template-columns:56px 1fr;gap:18px;margin:46px 0}
+.step .num{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#ff8a50,#ff6b35);color:#fff;font:800 24px/48px Georgia,serif;text-align:center;box-shadow:0 6px 16px rgba(255,107,53,.3);position:sticky;top:70px}
+.step h2{margin:6px 0 10px;font-size:24px}.step p{margin:8px 0}
+.step ul{margin:8px 0;padding-left:22px}.step li{margin:4px 0}
+.part{margin:70px 0 0;padding:18px 24px;border-radius:16px;background:linear-gradient(90deg,#6c5ce7,#8e7bff);color:#fff}
+.part h2{margin:0;font-size:24px}.part p{margin:4px 0 0;opacity:.9}
+.shot{margin:16px 0;cursor:zoom-in}
+.clip{position:absolute;inset:0;overflow:hidden;border-radius:12px}.crop{position:relative;border-radius:12px;box-shadow:0 0 0 1px #eadfd5,0 8px 24px rgba(120,70,30,.1);background:#fff}
+.crop img{position:absolute;max-width:none;display:block}
+.box{position:absolute;border:3px solid #ff3b30;border-radius:8px;box-shadow:0 0 0 4px rgba(255,59,48,.18);pointer-events:none}
+.mk{position:absolute;transform:translate(-50%,-50%);min-width:30px;height:30px;padding:0 8px;border-radius:15px;background:#ff3b30;color:#fff;font:700 15px/30px sans-serif;text-align:center;box-shadow:0 3px 10px rgba(0,0,0,.25);border:2px solid #fff;white-space:nowrap}
+figcaption{font-size:13px;color:#9a8d82;text-align:center;margin-top:8px}
+.callout{border-radius:12px;padding:12px 16px;margin:14px 0;font-size:15px}
+.tip{background:#fff8e6;border-left:4px solid #ffc53d}.warn{background:#fff0f0;border-left:4px solid #ff4d4f}.good{background:#effaf0;border-left:4px solid #52c41a}
+.btn{display:inline-block;padding:0 8px;margin:0 2px;border-radius:6px;background:#fff;border:1px solid #ffcfb8;color:#e85a24;font-size:14px;line-height:24px;font-weight:600;white-space:nowrap}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}.two.lib{grid-template-columns:230px 1fr;gap:32px;align-items:center}.libtree{background:#fff;border:1px solid #f0e4d8;border-radius:14px;padding:12px 18px;margin-top:10px}.libtree .lt-h{font-weight:700;font-size:14px;color:#c2410c;margin:10px 0 6px}.libtree .lt-h:first-child{margin-top:0}.libtree .lt-r{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:9px;background:#fff7ed;margin:4px 0;font-size:14px}.libtree .lt-r.sub{background:none;padding:3px 12px 3px 30px;color:#555}.libtree .lt-r span{margin-left:auto;font-size:12px;color:#9a8a7a}
+.card{background:#fff;border-radius:14px;padding:14px 18px;border:1px solid #f0e4d8}.card h4{margin:0 0 4px;font-size:16px}.card p{margin:0;color:#6b625a;font-size:14px}
+.coins{background:#fff;border-radius:16px;padding:18px 22px;margin:30px 0;border:1px dashed #ffc9ad}
+.ct{font-weight:700;margin-bottom:8px}.coin{display:inline-flex;gap:8px;align-items:center;margin:4px 18px 4px 0;font-size:15px}.coin b{color:#ff6b35}
+.cnote{font-size:13px;color:#9a8d82;margin-top:6px}
+.faq{margin:60px 0 20px}.faq h2{font-size:24px}
+details{background:#fff;border-radius:12px;margin:10px 0;border:1px solid #f0e4d8}summary{cursor:pointer;padding:12px 18px;font-weight:600}details>div{padding:0 18px 14px;color:#5a524b}
+footer{text-align:center;padding:30px 20px 50px;color:#9a8d82;font-size:15px}footer a{margin-left:16px}
+#lb{position:fixed;inset:0;background:rgba(20,15,10,.82);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:94vw;max-height:92vh;border-radius:8px}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.quick{flex-direction:column}.arrow{transform:rotate(90deg)}.two,.two.lib{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="top"><span class="logo">🎨 AI生图教程</span><a href="AI生成可变形象.html" class="on">🎭 AI生成可变形象</a><a href="AI生成衣橱.html">👗 AI生成衣橱</a><a href="AI生成封面.html">📕 AI生成封面</a></nav>
+<header class="hero">
+<div><span class="badge">角色管理 · 新功能</span> <span class="badge v2">仅编辑器 2.0</span>
+<h1>换装、变龄、易容<br><em>一句话搞定</em><br>AI 帮你画可变形象</h1>
+<p class="sub">换衣服、换发型、变小孩、变老变胖，描述一句话就能画。想保持同一张脸就以默认形象为基础，想易容变身也可以不以它为基础。</p>
+<p>右边三张都是真实生成的：左边是张三的原图，另外两张只写了“儿童版”“年老、长胖”。</p>
+<p class="v2note">⚠️ 这个功能只有<b>编辑器 2.0</b> 的作品才有，1.0 的作品里看不到。</p></div>
+<div class="pic"><figure onclick="zoom('img/zs_orig.webp')"><div class="hz"><img src="img/zs_orig.webp" style="width:218.3%;left:-59.6%;top:-0.4%"></div><figcaption>原图</figcaption></figure><figure onclick="zoom('img/zs_kid.webp')"><div class="hz"><img src="img/zs_kid.webp" style="width:240%;left:-69.5%;top:-22.2%"></div><figcaption>儿童版</figcaption></figure><figure onclick="zoom('img/zs_old.webp')"><div class="hz"><img src="img/zs_old.webp" style="width:218.3%;left:-60.3%;top:0%"></div><figcaption>年老长胖版</figcaption></figure></div></header>
+<main>
+<div class="qh">⏱ 30 秒速通版</div>
+<div class="quick"><div class="q"><div class="qe">🏷️</div><div class="qn">1</div><div class="qt">先设显示条件</div><div class="qd">没设显示条件的形象用不了 AI</div></div><div class="arrow">→</div><div class="q"><div class="qe">✍️</div><div class="qn">2</div><div class="qt">点「AI生成立绘」，写描述</div><div class="qd">一句话就行，嫌短点 AI 扩写</div></div><div class="arrow">→</div><div class="q"><div class="qe">✅</div><div class="qn">3</div><div class="qt">挑一张，应用到角色</div><div class="qd">9 积分/张，应用会顺手存进素材库</div></div></div>
+
+<section class="step" id="s1"><div class="num">1</div><div class="sbody"><h2>入口在角色管理里</h2>
+<p>打开<b>角色管理</b>，选中角色，看右边「角色形象」。有两个入口：</p>
+<figure class="shot" onclick="zoom('img/vr1.png')"><div class="crop" style="aspect-ratio:1588/690"><div class="clip"><img src="img/vr1.png" loading="lazy" style="width:100%;left:0%;top:-10.145%"></div><i class="box" style="left:81.675%;top:66.812%;width:7.997%;height:5.507%"></i><i class="box" style="left:35.202%;top:41.594%;width:8.438%;height:4.348%"></i><b class="mk" style="left:85.642%;top:78.551%">单个</b><b class="mk" style="left:51.637%;top:36.522%">批量</b></div></figure>
+<ul>
+<li><b>单个</b>：可变形象卡片上的 <span class="btn">+ AI生成立绘</span>，只画这一个形象。</li>
+<li><b>批量</b>：上面的 <span class="btn">批量生成角色形象</span>，一次画好几个，看 <a href="#batch">第二部分</a>。</li>
+</ul></div></section>
+
+<section class="step" id="s2"><div class="num">2</div><div class="sbody"><h2>先设好显示条件，再写形象描述</h2>
+<div class="two">
+<div><figure class="shot" style="max-width:230px" onclick="zoom('img/vr2.png')"><div class="crop" style="aspect-ratio:322/440"><div class="clip"><img src="img/vr2.png" loading="lazy" style="width:100%;left:0%;top:-4.545%"></div><i class="box" style="left:23.292%;top:78.182%;width:51.242%;height:7.727%"></i><i class="box" style="left:58.385%;top:87.5%;width:27.019%;height:7.727%"></i><b class="mk" style="left:12.422%;top:82.045%">1</b><b class="mk" style="left:87.578%;top:81.364%">2</b></div></figure></div>
+<div>
+<p><b>① 显示条件</b>：<b>先设好显示条件才能用 AI 生成</b>；批量的时候也只会拉取设了显示条件的形象。</p>
+<p><b>② 形象描述</b>：每次都要写的东西（身份、年龄、身高、体型、发色、发型、瞳色、服装风格……）填在这里，以后每次打开 AI 生成，会<b>自动带进描述框</b>，不用重复写。</p>
+<p>懒得一项项填？在最上面传张图点「AI辅助识别」，AI 帮你填。</p>
+</div></div>
+<figure class="shot" style="max-width:520px" onclick="zoom('img/vr3.png')"><div class="crop" style="aspect-ratio:886/1043"><div class="clip"><img src="img/vr3.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:4.74%;top:19.175%;width:14.673%;height:12.464%"></i><i class="box" style="left:15.124%;top:78.811%;width:82.167%;height:10.163%"></i><b class="mk" style="left:30.474%;top:25.407%">AI帮你填</b><b class="mk" style="left:59.594%;top:92.33%">更多描述</b></div></figure></div></section>
+
+<section class="step" id="s3"><div class="num">3</div><div class="sbody"><h2>认识生成界面</h2>
+<p>点 <span class="btn">+ AI生成立绘</span> 打开这个窗口，从上到下五块：</p>
+<figure class="shot" onclick="zoom('img/vr4.png')"><div class="crop" style="aspect-ratio:1232/882"><div class="clip"><img src="img/vr4.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><b class="mk" style="left:14.61%;top:12.018%">1</b><b class="mk" style="left:40.99%;top:12.018%">2</b><b class="mk" style="left:75.081%;top:11.905%">3</b><b class="mk" style="left:11.769%;top:55.329%">4</b><b class="mk" style="left:12.256%;top:76.757%">5</b></div></figure>
+<ul>
+<li><b>① 描述角色形象</b>：写外貌、服装、表情、动作。形象描述里存过的会自动带进来。</li>
+<li><b>② 以默认形象为基础</b>：默认勾上，见下面。</li>
+<li><b>③ 参考图片</b>（可选）：限 1 张，JPG/PNG/webp，10MB 以内。</li>
+<li><b>④ 画风风格</b>：勾了「以默认形象为基础」时<b>画风跟默认形象走，不能选</b>，提示“素材风格将参照默认形象，无法自定义”。</li>
+<li><b>⑤ 生成数量</b>：一次 1～4 张，底下先算好要消耗多少积分：<b>每张 9 积分</b>。</li>
+</ul>
+<div class="two">
+<div class="card"><h4>✅ 勾上「以默认形象为基础」</h4><p>脸和五官跟默认形象一致，年龄、身材、发型、服装按描述变，画风也跟默认形象对齐。<b>同一个人换造型</b>选它。</p></div>
+<div class="card"><h4>⬜ 不勾</h4><p>只按形象描述和参考图画，可以自己选画风。<b>易容、变身</b>这类剧情选它。</p></div>
+</div></div></section>
+
+<section class="step" id="s4"><div class="num">4</div><div class="sbody"><h2>写描述：AI 扩写要手动应用</h2>
+<div class="two">
+<div><figure class="shot" onclick="zoom('img/vr5.png')"><div class="crop" style="aspect-ratio:718/660"><div class="clip"><img src="img/vr5.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:1.95%;top:40.909%;width:46.24%;height:6.061%"></i><i class="box" style="left:65.46%;top:61.212%;width:13.928%;height:4.545%"></i><b class="mk" style="left:41.226%;top:35.303%">1</b><b class="mk" style="left:58.217%;top:62.424%">2</b></div></figure></div>
+<div>
+<p>随便写一句，比如“老头穿上了女王的服饰”，点 <b>① <span class="btn">AI智能扩写</span></b>（1 积分/次），AI 会补成一大段完整的提示词。</p>
+<p>扩写的结果<b>不会自动填进去</b>，看着满意要点 <b>② <span class="btn">应用到输入框</span></b>；不满意点「重新生成」再扩一次，或者「取消」。</p>
+</div></div>
+<p>描述写好后点 <span class="btn">保存描述</span>，它会存进这个形象的<b>形象描述</b>，下次打开自动回显。<span class="btn">清空</span> 只清输入框，不影响已保存的内容。</p>
+<figure class="shot" style="max-width:620px" onclick="zoom('img/vr7.png')"><div class="crop" style="aspect-ratio:729/379"><div class="clip"><img src="img/vr7.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:50.069%;top:70.712%;width:22.771%;height:11.082%"></i></div></figure></div></section>
+
+<section class="step" id="s5"><div class="num">5</div><div class="sbody"><h2>（可选）传参考图让 AI 分析</h2>
+<div class="two">
+<div><figure class="shot" onclick="zoom('img/vr6.png')"><div class="crop" style="aspect-ratio:509/313"><div class="clip"><img src="img/vr6.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:4.322%;top:81.789%;width:93.32%;height:12.78%"></i><i class="box" style="left:27.505%;top:30.032%;width:5.894%;height:9.585%"></i><b class="mk" style="left:86.444%;top:71.885%">5积分</b><b class="mk" style="left:42.24%;top:34.505%">删掉</b></div></figure></div>
+<div>
+<p>有心仪的造型图就传上来，点 <span class="btn">分析参考图生成提示词</span>（5 积分/次），AI 看图帮你写描述。</p>
+<div class="callout tip">💡 <b>不想出图和参考图太像？</b>分析完提示词后，点右上角的 × 把参考图删掉再生成，这样 AI 只按文字描述画。</div>
+</div></div></div></section>
+
+<section class="step" id="s6"><div class="num">6</div><div class="sbody"><h2>开始生成，可以先去忙别的</h2>
+<p>点 <span class="btn">🚀 开始生成</span>。生成会受很多因素影响，<b>不会很快</b>，不用干等：点右上角的 <span class="btn">—</span> 把窗口最小化，先去做别的事。</p>
+<figure class="shot" style="max-width:820px" onclick="zoom('img/vr8.png')"><div class="crop" style="aspect-ratio:1240/807"><div class="clip"><img src="img/vr8.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:91.048%;top:1.487%;width:3.387%;height:5.204%"></i><i class="box" style="left:1.29%;top:93.68%;width:18.548%;height:4.461%"></i><b class="mk" style="left:93.468%;top:12.887%">最小化</b><b class="mk" style="left:24.194%;top:95.911%">进度</b></div></figure>
+<p>最小化以后，相关位置都会挂一个转圈的进度角标：角色列表里的角色名旁、正在画的形象卡片上，还有顶部工具栏的「角色」按钮上。</p>
+<figure class="shot" onclick="zoom('img/vr9.png')"><div class="crop" style="aspect-ratio:1585/300"><div class="clip"><img src="img/vr9.png" loading="lazy" style="width:100%;left:0%;top:-93.333%"></div><i class="box" style="left:88.833%;top:6.667%;width:2.271%;height:9.333%"></i><i class="box" style="left:18.927%;top:69.333%;width:2.271%;height:9.333%"></i><b class="mk" style="left:96.53%;top:12%">卡片</b><b class="mk" style="left:23.659%;top:52%">角色列表</b></div></figure>
+<figure class="shot" style="max-width:600px" onclick="zoom('img/vr10.png')"><div class="crop" style="aspect-ratio:707/83"><div class="clip"><img src="img/vr10.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:44.413%;top:14.458%;width:5.375%;height:33.735%"></i></div></figure>
+<div class="callout warn">⚠️ <b>AI 任务是互斥的</b>：自动视觉化、可变形象、衣橱三种同一时间只能跑一个，前一个没完就开不了下一个。<b>封面是独立的</b>，可以和它们同时开。</div></div></section>
+
+<section class="step" id="s7"><div class="num">7</div><div class="sbody"><h2>挑一张，应用到角色</h2>
+<p>画好后，鼠标放到图上可以 <span class="btn">查看</span> 大图、<span class="btn">下载</span> 到本地。点选最喜欢的那张，然后看底部：</p>
+<figure class="shot" onclick="zoom('img/vr11.png')"><div class="crop" style="aspect-ratio:1229/407"><div class="clip"><img src="img/vr11.png" loading="lazy" style="width:100%;left:0%;top:-98.28%"></div><i class="box" style="left:34.744%;top:12.776%;width:15.053%;height:60.934%"></i><i class="box" style="left:85.842%;top:84.767%;width:10.415%;height:11.302%"></i><i class="box" style="left:72.579%;top:84.767%;width:12.205%;height:11.302%"></i><i class="box" style="left:60.7%;top:84.767%;width:10.903%;height:11.302%"></i><b class="mk" style="left:65.338%;top:27.764%">选中</b><b class="mk" style="left:90.399%;top:74.201%">应用</b><b class="mk" style="left:77.95%;top:74.201%">只存</b><b class="mk" style="left:70.138%;top:74.939%">重来</b></div></figure>
+<ul>
+<li><span class="btn">✅ 应用到角色</span>：设成这个形象的立绘和头像，<b>同时存入素材库</b>。</li>
+<li><span class="btn">💾 存入素材库</span>：只存不用，以后再挂。</li>
+<li><span class="btn">🔄 重新生成</span>：都不满意，改改描述再来。</li>
+</ul>
+<div class="callout warn">⚠️ 应用完窗口不会自己关，结果还在。<b>要手动点右上角的 × 关掉，才会清空本次结果</b>。</div>
+<p>关掉窗口回到角色管理，形象改造完成 🎉</p>
+<figure class="shot" onclick="zoom('img/vr13.png')"><div class="crop" style="aspect-ratio:1182/504"><div class="clip"><img src="img/vr13.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:74.281%;top:11.905%;width:21.997%;height:85.317%"></i><b class="mk" style="left:85.448%;top:6.349%">新立绘</b></div></figure></div></section>
+
+<div class="part" id="batch"><h2>第二部分 · 批量生成：一次画完所有形象</h2><p>角色有一堆形象等着上图？一个窗口全部搞定。</p></div>
+
+<section class="step" id="s8"><div class="num">8</div><div class="sbody"><h2>设好显示条件，打开批量</h2>
+<p>先给要画的每个形象都<b>设好显示条件</b>（批量只拉设了显示条件的形象），再点 <span class="btn">批量生成角色形象</span>。</p>
+<figure class="shot" onclick="zoom('img/vr14.png')"><div class="crop" style="aspect-ratio:1238/680"><div class="clip"><img src="img/vr14.png" loading="lazy" style="width:127.464%;left:-27.464%;top:-10.294%"></div><i class="box" style="left:10.258%;top:27.647%;width:10.824%;height:4.706%"></i><i class="box" style="left:3.231%;top:34.265%;width:21.163%;height:63.235%"></i><b class="mk" style="left:37.157%;top:22.353%">批量</b><b class="mk" style="left:27.625%;top:36.471%">脸模</b></div></figure>
+<div class="callout good">🎁 <b>小技巧：直接用脸模当默认形象。</b>像上面这个角色，默认形象只是一张脸部特写，生成可变形象时 AI 会自动补全成<b>半身立绘</b>，省掉换脸、抠图这些步骤。</div>
+<div class="roles row4">
+<figure onclick="zoom('img/vr_face.webp')"><div class="rimg"><img src="img/vr_face.webp" style="width:100%;left:0;top:0"></div><figcaption><b>脸模</b>（默认形象）</figcaption></figure>
+<div class="rarrow">➜</div>
+<figure onclick="zoom('img/vr_girl1.webp')"><div class="rimg"><img src="img/vr_girl1.webp" style="width:217.4%;left:-57.2%;top:-1.4%"></div><figcaption>形象1</figcaption></figure>
+<figure onclick="zoom('img/vr_girl2.webp')"><div class="rimg"><img src="img/vr_girl2.webp" style="width:212.8%;left:-54.5%;top:-17.1%"></div><figcaption>形象2</figcaption></figure>
+<figure onclick="zoom('img/vr_girl3.webp')"><div class="rimg"><img src="img/vr_girl3.webp" style="width:227.3%;left:-65.5%;top:-14%"></div><figcaption>形象3</figcaption></figure>
+</div></div></section>
+
+<section class="step" id="s9"><div class="num">9</div><div class="sbody"><h2>勾要画的形象</h2>
+<p>窗口顶部写着一共几个形象、几个还没设置。<b>只有勾上的形象才会生成</b>，默认勾选所有<b>还没立绘</b>的形象；已经有立绘的默认不勾，想重画就勾上。</p>
+<figure class="shot" onclick="zoom('img/vr15.png')"><div class="crop" style="aspect-ratio:1474/805"><div class="clip"><img src="img/vr15.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:16.011%;top:2.484%;width:12.076%;height:3.478%"></i><i class="box" style="left:2.985%;top:12.174%;width:20.353%;height:3.478%"></i><i class="box" style="left:2.985%;top:56.894%;width:13.569%;height:3.727%"></i><b class="mk" style="left:33.921%;top:4.224%">几个没设置</b><b class="mk" style="left:30.665%;top:13.913%">已有立绘·不勾</b><b class="mk" style="left:22.999%;top:60.745%">没立绘·已勾</b></div></figure></div></section>
+
+<section class="step" id="s10"><div class="num">10</div><div class="sbody"><h2>每个形象写好描述，开始批量</h2>
+<p>最上面统一定「每个形象生成数量」，下面每个形象各写各的描述、各传各的参考图。<span class="btn">AI优化提示词</span>、<span class="btn">保存描述</span>、「以默认形象为基础」跟单个生成一样用。</p>
+<figure class="shot" onclick="zoom('img/vr16.png')"><div class="crop" style="aspect-ratio:1460/1000"><div class="clip"><img src="img/vr16.png" loading="lazy" style="width:100%;left:0%;top:-6%"></div><i class="box" style="left:51.37%;top:6%;width:46.575%;height:5.6%"></i><i class="box" style="left:16.986%;top:76%;width:60%;height:14%"></i><b class="mk" style="left:75.959%;top:15.2%">每个几张</b><b class="mk" style="left:37.192%;top:72.3%">各写各的</b></div></figure>
+<div class="callout tip">🎬 <b>可变形象会参考动作</b>：参考图或描述里写了动作、姿势，画出来会照着做。这点和<b>衣橱</b>不同，衣橱会严格按默认形象的姿势和位置，只换衣服。</div>
+<p>点 <span class="btn">开始批量生成</span>。批量的时候一样可以最小化，工具栏上会显示画到第几个：</p>
+<figure class="shot" style="max-width:520px" onclick="zoom('img/vr17.png')"><div class="crop" style="aspect-ratio:581/74"><div class="clip"><img src="img/vr17.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:53.701%;top:13.514%;width:7.573%;height:35.135%"></i></div></figure></div></section>
+
+<section class="step" id="s11"><div class="num">11</div><div class="sbody"><h2>每个形象挑一张，一键应用</h2>
+<p>跑完后每个形象标「已完成」，下面一排生成结果，点选要用的那张。</p>
+<figure class="shot" onclick="zoom('img/vr20.png')"><div class="crop" style="aspect-ratio:1456/700"><div class="clip"><img src="img/vr20.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:2.747%;top:68%;width:8.654%;height:24%"></i><i class="box" style="left:2.747%;top:93.714%;width:30.632%;height:5.143%"></i><b class="mk" style="left:15.11%;top:74.286%">点选</b><b class="mk" style="left:41.209%;top:94.571%">只管这一个</b></div></figure>
+<ul>
+<li>每个形象下面有自己的「应用选中结果」「存入素材库」「重新生成此形象」，<b>不满意哪个就单独重画哪个</b>。</li>
+<li>全都想重来，点底部 <span class="btn">全部重新生成</span>。</li>
+<li>都挑好了点底部 <span class="btn">应用</span>，选中的图一次性放进对应形象。</li>
+</ul>
+<figure class="shot" onclick="zoom('img/vr20.png')"><div class="crop" style="aspect-ratio:1456/172"><div class="clip"><img src="img/vr20.png" loading="lazy" style="width:100%;left:0%;top:-1139.535%"></div><i class="box" style="left:72.527%;top:68.023%;width:10.096%;height:29.07%"></i><i class="box" style="left:92.72%;top:68.023%;width:5.907%;height:29.07%"></i></div></figure>
+<p>回到角色管理，三个形象都挂上了：同一张脸，古装、民国、JK 三套造型。</p>
+<figure class="shot" onclick="zoom('img/vr21.png')"><div class="crop" style="aspect-ratio:1169/500"><div class="clip"><img src="img/vr21.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:10.607%;top:2.4%;width:7.528%;height:6.4%"></i></div></figure>
+<div class="callout tip">👗 满意的形象也可以<b>替换成默认形象</b>，为后续生成衣橱做准备。</div></div></section>
+
+<section class="step" id="s12"><div class="num">12</div><div class="sbody"><h2>变年龄、变身材，直接说</h2>
+<p>勾了「以默认形象为基础」时，还能<b>改年龄和身材</b>：描述里直接写“儿童”“老年”“长胖”就行，AI 会照默认形象的五官来画。开头那三张张三就是这么来的：</p>
+<figure class="shot" style="max-width:820px" onclick="zoom('img/vr19.png')"><div class="crop" style="aspect-ratio:1170/910"><div class="clip"><img src="img/vr19.png" loading="lazy" style="width:100%;left:0%;top:0%"></div></div><figcaption>张三的默认形象和一组可变形象</figcaption></figure></div></section>
+
+<section class="step" id="s13"><div class="num">13</div><div class="sbody"><h2>生图历史</h2>
+<p>以前生成过的图都在 <span class="btn">生图历史</span> 里，按背景 / 角色 / 衣橱分开，能按时间筛选、按提示词或角色名搜索；正在画的也会显示「生成中」。</p>
+<figure class="shot" onclick="zoom('img/vr18.png')"><div class="crop" style="aspect-ratio:1732/878"><div class="clip"><img src="img/vr18.png" loading="lazy" style="width:100%;left:0%;top:0%"></div><i class="box" style="left:10.739%;top:12.301%;width:7.159%;height:6.834%"></i><i class="box" style="left:3.984%;top:32.346%;width:17.436%;height:45.786%"></i><b class="mk" style="left:28.06%;top:15.718%">角色</b><b class="mk" style="left:6.755%;top:84.169%">生成中</b></div></figure></div></section>
+
+<div class="coins"><div class="ct">💎 积分小账本</div><div class="coin"><span>AI智能扩写 / AI优化提示词</span><b>1 积分/次</b></div><div class="coin"><span>分析参考图 / AI辅助识别</span><b>5 积分/次</b></div><div class="coin"><span>生成立绘</span><b>9 积分/张</b></div><div class="cnote">弹窗右上角「本月消耗」随时看本月用了多少，开始生成前底部也会先算好这次要花多少。</div></div>
+
+<section class="faq"><h2>🙋 常见问题</h2><details><summary>卡片上没有「AI生成立绘」/ 点了用不了？</summary><div>先确认作品是编辑器 2.0 的；再看这个形象有没有设显示条件，没设的用不了。</div></details><details><summary>批量窗口里少了几个形象？</summary><div>批量只拉取设了显示条件的形象，去卡片上把显示条件设好再打开。</div></details><details><summary>画出来不像同一个人？</summary><div>确认默认形象有立绘，并且勾了「以默认形象为基础」。</div></details><details><summary>画风选不了？</summary><div>勾了「以默认形象为基础」时，画风跟默认形象走，不能单独选。要换画风就取消勾选。</div></details><details><summary>出图和参考图太像了？</summary><div>用参考图分析出提示词后，把参考图删掉再生成。</div></details><details><summary>点生成提示有任务在进行？</summary><div>自动视觉化、可变形象、衣橱同一时间只能跑一个，看看工具栏或卡片上哪里挂着进度角标，等它跑完。封面不受影响。</div></details><details><summary>应用完再打开，上次的结果还在？</summary><div>结果要手动关掉窗口才会清空。</div></details><details><summary>描述每次都要重写？</summary><div>常用的写进「形象描述」，或者生成时点「保存描述」，下次打开自动带出来。</div></details></section>
+</main>
+<footer>看完了？去使用一遍，比看十遍都管用 ✌️ <a href="AI生成衣橱.html">👗 AI生成衣橱 →</a><a href="AI生成封面.html">📕 AI生成封面 →</a></footer>
+<div id="lb" onclick="this.classList.remove('on')"><img></div>
+<script>function zoom(s){const l=document.getElementById('lb');l.querySelector('img').src=s;l.classList.add('on')}document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lb').classList.remove('on')})</script>
+</body></html>
